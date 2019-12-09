@@ -8,7 +8,12 @@ import speciesEmoji from '../speciesEmoji';
 
 
 const PetCard = (props) => {
-  const { id, name, species, about, location } = props;
+  const { id, name, species, about, location, selectPet } = props;
+
+  const onselectPet = () => {
+    selectPet(id);
+  }
+
   return (
     <div className="card pet-card">
 
@@ -17,6 +22,7 @@ const PetCard = (props) => {
         {speciesEmoji(species)} {id} - {name}
         <button
           className="btn btn-primary pet-card--select-pet-btn"
+          onClick={onselectPet}
         >
           Select
         </button>
@@ -44,6 +50,7 @@ PetCard.propTypes = {
   species: PropTypes.string.isRequired,
   about: PropTypes.string,
   location: PropTypes.string,
+  selectPet: PropTypes.func.isRequired,
 }
 
 export default PetCard;

@@ -22,8 +22,19 @@ class App extends Component {
     console.log(pets);
   }
 
+  selectPet = (petId) => {
+    let selectedPet = pets.find((pet) => pet.id === petId);
 
+    console.log(selectedPet)
 
+    this.state.currentPet = selectedPet
+
+    this.setState({
+      pets,
+    })    
+
+    console.log(this.state)
+  }
 
   render () {
     const { currentPet } = this.state;
@@ -41,7 +52,7 @@ class App extends Component {
         {/* <PetDetails currentPet={this.state.currentPet}/> */}
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */}
-          <PetList pets={this.state.petList}/>
+          <PetList pets={this.state.petList} selectPet={this.selectPet}/>
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */}
