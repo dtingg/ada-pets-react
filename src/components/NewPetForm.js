@@ -18,35 +18,30 @@ class NewPetForm extends Component {
   }
   
   onNameChange = (event) => {
-    console.log("Name field updated");
     this.setState({
       name: event.target.value,
     });
   }
 
   onSpeciesChange = (event) => {
-    console.log("Species field updated");
     this.setState({
-      name: event.target.value,
+      species: event.target.value,
     });
   }
 
   onLocationChange = (event) => {
-    console.log("Location field updated");
     this.setState({
       location: event.target.value,
     });
   }
 
   onImageChange = (event) => {
-    console.log("Image field updated");
     this.setState({
       image: event.target.value,
     });
   }
 
   onAboutChange = (event) => {
-    console.log("About field updated");
     this.setState({
       about: event.target.value,
     });
@@ -73,8 +68,7 @@ class NewPetForm extends Component {
 
     console.log(newPet)
 
-    // this.props.addPetCallback(newPet);
-
+    this.props.addPetCallback(newPet);
   }
 
   render() {
@@ -83,22 +77,31 @@ class NewPetForm extends Component {
         <h3>Add a Pet</h3>
         { /* A form should go here! */ }
         <div>
-          <label htmlFor="name">Name:</label>
-          <input onChange={this.onNameChange} value={this.state.name} name="name" />
+          <label className="new-pet-form--label" htmlFor="name">Name</label>
+          <input onChange={this.onNameChange} value={this.state.name} name="name" placeholder="name" />
         </div>
-
-
-
-
-
-
-
+        <div>
+          <label className="new-pet-form--label" htmlFor="name">Species</label>
+          <input onChange={this.onSpeciesChange} value={this.state.species} species="species" placeholder="species"/>
+        </div>
+        <div>
+          <label className="new-pet-form--label" htmlFor="name">Location</label>
+          <input onChange={this.onLocationChange} value={this.state.location} location="location" placeholder="location"/>
+        </div>
+        <div>
+          <label className="new-pet-form--label" htmlFor="name">Image</label>
+          <input onChange={this.onImageChange} value={this.state.image} image="image" placeholder="image link"/>
+        </div>
+        <div>
+          <label className="new-pet-form--label" htmlFor="name">About</label>
+          <div>
+            <textarea className="new-pet-form--about" onChange={this.onAboutChange} value={this.state.about} about="about" />
+          </div>
+        </div>
         <input className="btn btn-success new-pet-form--submit" type="submit" name="submit" value="Add a Pet" />
       </form>
     );
   }
-
-
 }
 
 NewPetForm.propTypes = {
