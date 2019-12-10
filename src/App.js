@@ -33,17 +33,16 @@ class App extends Component {
   removePet = (petId) => {
     let selectedPet = pets.find((pet) => pet.id === petId);
 
+
+    if (this.state.currentPet === selectedPet) {
+      this.state.currentPet = undefined
+    }
+
     let petIndex = pets.indexOf(selectedPet)
 
     pets.splice(petIndex, 1)
 
-    if (this.state.currentPet) {
-      this.state.currentPet = undefined
-    }
-    
-    this.setState({
-      pets,
-    })
+    this.setState({ pets });
   }
 
   addPet = (pet) => {
@@ -71,7 +70,7 @@ class App extends Component {
         { /* Wave 1:  Where Pet Details should appear */}
         { currentPet
           ? <PetDetails currentPet={currentPet} />
-          : <h2></h2>
+          : <div></div>
         }
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */}
