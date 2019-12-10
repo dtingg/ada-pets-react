@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewPetForm Snapshot test for NewPetForm 1`] = `
+<DocumentFragment>
+  <form
+    class="new-pet-form"
+  >
+    <h3>
+      Add a Pet
+    </h3>
+    <div>
+      <label
+        class="new-pet-form--label"
+        for="name"
+      >
+        Name
+      </label>
+      <input
+        name="name"
+        placeholder="name"
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        class="new-pet-form--label"
+        for="name"
+      >
+        Species
+      </label>
+      <input
+        placeholder="species"
+        species="species"
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        class="new-pet-form--label"
+        for="name"
+      >
+        Location
+      </label>
+      <input
+        location="location"
+        placeholder="location"
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        class="new-pet-form--label"
+        for="name"
+      >
+        Image
+      </label>
+      <input
+        image="image"
+        placeholder="image link"
+        value=""
+      />
+    </div>
+    <div>
+      <label
+        class="new-pet-form--label"
+        for="name"
+      >
+        About
+      </label>
+      <div>
+        <textarea
+          about="about"
+          class="new-pet-form--about"
+        />
+      </div>
+    </div>
+    <input
+      class="btn btn-success new-pet-form--submit"
+      name="submit"
+      type="submit"
+      value="Add a Pet"
+    />
+  </form>
+</DocumentFragment>
+`;
