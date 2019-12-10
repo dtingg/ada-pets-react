@@ -12,7 +12,7 @@ class NewPetForm extends Component {
       name: "",
       species: "",
       location: "",
-      image: "",
+      images: [],
       about: "",
     };
   }
@@ -37,7 +37,7 @@ class NewPetForm extends Component {
 
   onImageChange = (event) => {
     this.setState({
-      image: event.target.value,
+      images: [event.target.value],
     });
   }
 
@@ -54,7 +54,7 @@ class NewPetForm extends Component {
       name: this.state.name,
       species: this.state.species,
       location: this.state.location,
-      image: this.state.image,
+      images: this.state.image,
       about: this.state.about,
     };
 
@@ -62,7 +62,7 @@ class NewPetForm extends Component {
       name: "",
       species: "",
       location: "",
-      image: "",
+      images: [],
       about: "",
     });
 
@@ -90,7 +90,7 @@ class NewPetForm extends Component {
         </div>
         <div>
           <label className="new-pet-form--label" htmlFor="name">Image</label>
-          <input onChange={this.onImageChange} value={this.state.image} image="image" placeholder="image link"/>
+          <input onChange={this.onImageChange} value={this.state.images} image="image" placeholder="image link"/>
         </div>
         <div>
           <label className="new-pet-form--label" htmlFor="name">About</label>

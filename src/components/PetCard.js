@@ -51,8 +51,9 @@ PetCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   species: PropTypes.string.isRequired,
-  about: PropTypes.string,
   location: PropTypes.string,
+  images: PropTypes.array,
+  about: PropTypes.string,
   selectPet: PropTypes.func.isRequired,
   removePet: PropTypes.func,
 }

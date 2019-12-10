@@ -14,7 +14,6 @@ const PetList = (props) => {
       {...pet}
       selectPet={ props.selectPet }
       removePet={ props.removePet }
-
       />
     );
   });

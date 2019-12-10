@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PetList from './components/PetList';
-import PetCard from './components/PetCard'
+// import PetCard from './components/PetCard'
 import PetDetails from './components/PetDetails';
 import SearchBar from './components/SearchBar';
 import NewPetForm from './components/NewPetForm';
@@ -25,11 +25,9 @@ class App extends Component {
   selectPet = (petId) => {
     let selectedPet = pets.find((pet) => pet.id === petId);
 
-    this.state.currentPet = selectedPet
-
     this.setState({
-      pets,
-    })    
+      currentPet: selectedPet,
+    }); 
   }
 
   removePet = (petId) => {
@@ -55,11 +53,8 @@ class App extends Component {
     
     this.setState({ pets });
 
-
     console.log(this.state)
   }
-
-
 
   render () {
     const { currentPet } = this.state;
