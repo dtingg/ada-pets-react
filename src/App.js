@@ -31,11 +31,13 @@ class App extends Component {
   }
 
   removePet = (petId) => {
+    let currentPet = this.state.currentPet
     let selectedPet = pets.find((pet) => pet.id === petId);
 
-
-    if (this.state.currentPet === selectedPet) {
-      this.state.currentPet = undefined
+    if (currentPet === selectedPet) {
+      this.setState({
+        currentPet: undefined
+      })
     }
 
     let petIndex = pets.indexOf(selectedPet)

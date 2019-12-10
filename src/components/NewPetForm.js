@@ -12,7 +12,7 @@ class NewPetForm extends Component {
       name: "",
       species: "",
       location: "",
-      images: [],
+      images: "",
       about: "",
     };
   }
@@ -37,7 +37,7 @@ class NewPetForm extends Component {
 
   onImageChange = (event) => {
     this.setState({
-      images: [event.target.value],
+      images: event.target.value,
     });
   }
 
@@ -54,7 +54,7 @@ class NewPetForm extends Component {
       name: this.state.name,
       species: this.state.species,
       location: this.state.location,
-      images: this.state.image,
+      images: [this.state.images.split(", ")],
       about: this.state.about,
     };
 
@@ -62,7 +62,7 @@ class NewPetForm extends Component {
       name: "",
       species: "",
       location: "",
-      images: [],
+      images: "",
       about: "",
     });
 
