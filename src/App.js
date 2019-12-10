@@ -61,8 +61,8 @@ class App extends Component {
           <SearchBar />
         </section>
         { /* Wave 1:  Where Pet Details should appear */}
-        { this.state.currentPet
-          ? <PetDetails currentPet={this.state.currentPet} />
+        { currentPet
+          ? <PetDetails currentPet={currentPet} />
           : <h2></h2>
         }
         <section className="pet-list-wrapper">
@@ -71,6 +71,7 @@ class App extends Component {
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */}
+          <NewPetForm />
         </section>
       </main>
     );
