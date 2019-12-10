@@ -49,7 +49,13 @@ class App extends Component {
           <SearchBar />
         </section>
         { /* Wave 1:  Where Pet Details should appear */}
-        {/* <PetDetails currentPet={this.state.currentPet}/> */}
+
+        { this.state.currentPet
+          ? <PetDetails currentPet={this.state.currentPet} />
+          : <h2></h2>
+        }
+        
+        
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */}
           <PetList pets={this.state.petList} selectPet={this.selectPet}/>
