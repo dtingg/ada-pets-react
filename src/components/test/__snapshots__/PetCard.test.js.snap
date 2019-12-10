@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PetCard Snapshot test for PetCard 1`] = `
+<DocumentFragment>
+  <div
+    class="card pet-card"
+  >
+    <section
+      class="pet-card--header"
+    >
+      🐕 1 - Dino
+      <button
+        class="btn btn-primary pet-card--select-pet-btn"
+      >
+        Select
+      </button>
+      <button
+        aria-label="Remove"
+        class="btn btn-danger pet-card--remove-btn"
+        type="button"
+      >
+        Remove
+      </button>
+    </section>
+    <section
+      class="pet-card--body"
+    >
+      New pet
+    </section>
+    <section
+      class="pet-card--footer text-muted"
+    >
+      Seattle
+    </section>
+  </div>
+</DocumentFragment>
+`;
