@@ -19,7 +19,6 @@ class App extends Component {
       petList: pets,
       currentPet: undefined,
     };
-    console.log(pets);
   }
 
   selectPet = (petId) => {
