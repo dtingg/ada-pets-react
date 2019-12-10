@@ -11,6 +11,7 @@
 .pet-card {
   margin: 60px 30px 0px 30px;
   display: inline-block;
+  min-width: 350px;
     
   .pet-card--body {
     white-space: normal;
@@ -25,5 +26,3 @@
 .btn {
   margin: 5px;
 }
-
-

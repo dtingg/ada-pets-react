@@ -4,14 +4,8 @@ import PetCard from './PetCard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const PetList = (props) => {
-
   const pets = props.pets
-
-
-
-
 
   const petCollection = pets.map((pet, i) => {  
     return (
@@ -19,6 +13,7 @@ const PetList = (props) => {
       key={pet.id}
       {...pet}
       selectPet={ props.selectPet }
+      removePet={ props.removePet }
       />
     );
   });
@@ -33,6 +28,7 @@ const PetList = (props) => {
 PetList.propTypes = {
   pets: PropTypes.array.isRequired,
   selectPet: PropTypes.func,
+  removePet: PropTypes.func,
 };
 
 export default PetList;

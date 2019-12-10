@@ -25,15 +25,27 @@ class App extends Component {
   selectPet = (petId) => {
     let selectedPet = pets.find((pet) => pet.id === petId);
 
-    console.log(selectedPet)
-
     this.state.currentPet = selectedPet
 
     this.setState({
       pets,
     })    
+  }
 
-    console.log(this.state)
+  removePet = (petId) => {
+    let selectedPet = pets.find((pet) => pet.id === petId);
+
+    let petIndex = pets.indexOf(selectedPet)
+
+    pets.splice(petIndex, 1)
+
+    if (this.state.currentPet) {
+      this.state.currentPet = undefined
+    }
+    
+    this.setState({
+      pets,
+    })
   }
 
   render () {
@@ -49,16 +61,13 @@ class App extends Component {
           <SearchBar />
         </section>
         { /* Wave 1:  Where Pet Details should appear */}
-
         { this.state.currentPet
           ? <PetDetails currentPet={this.state.currentPet} />
           : <h2></h2>
         }
-        
-        
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */}
-          <PetList pets={this.state.petList} selectPet={this.selectPet}/>
+          <PetList pets={this.state.petList} selectPet={this.selectPet} removePet={this.removePet}/>
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */}
