@@ -50,6 +50,10 @@ class App extends Component {
   addPet = (pet) => {
     const pets = this.state.petList;
 
+    const newId = this.state.petList.length + 1
+
+    pet.id = newId
+
     pets.push(pet);
     
     this.setState({ pets });

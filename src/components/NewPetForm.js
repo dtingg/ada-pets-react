@@ -51,6 +51,7 @@ class NewPetForm extends Component {
     event.preventDefault();
   
     const newPet = {
+      id: undefined,
       name: this.state.name,
       species: this.state.species,
       location: this.state.location,
