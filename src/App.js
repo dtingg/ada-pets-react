@@ -80,6 +80,9 @@ class App extends Component {
         <header className="app-header">
           <h1>Ada Pets</h1>
         </header>
+        <section>
+          {this.state.error}
+        </section>
         <section className="search-bar-wrapper">
           { /* Wave 4:  Place to add the SearchBar component */}
           <SearchBar />
