@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios"
 import PetList from './components/PetList';
 // import PetCard from './components/PetCard'
 import PetDetails from './components/PetDetails';
@@ -16,9 +17,20 @@ class App extends Component {
     super(props);
 
     this.state = {
-      petList: pets,
+      petList: [], //pets,
       currentPet: undefined,
+      error: "",
     };
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3000/pets')
+      .then((response) => {
+        this.setState({ petList: response.data });
+      })
+      .catch((error) => {
+        this.setState({ error: error.message });
+      });
   }
 
   selectPet = (petId) => {
