@@ -41,36 +41,19 @@ class App extends Component {
     }); 
   }
 
-  // removePet = (petId) => {
-  //   let currentPet = this.state.currentPet
-  //   let selectedPet = pets.find((pet) => pet.id === petId);
-
-  //   if (currentPet === selectedPet) {
-  //     this.setState({
-  //       currentPet: undefined
-  //     })
-  //   }
-
-  //   let petIndex = pets.indexOf(selectedPet)
-
-  //   pets.splice(petIndex, 1)
-
-  //   this.setState({ pets });
-  // }
-
-  removePet = (pet) => {
-    axios.post('http://localhost:3000/pets', pet)
+  removePet = (petId) => {
+    axios.delete(`http://localhost:3000/pets/${ petId }`)
       .then((response) => {
-
-        // What should we do when we know the post request worked?
+        const petList = this.state.petList.filter((pet) => pet.id !== petId);
+  
+        this.setState({
+          petList,
+        });
       })
       .catch((error) => {
-        // What should we do when we know the post request failed?
-        this.setState({
-          error: error.message,
-        })
+        this.setState({ error: error.message });
       });
-  }
+  };
 
   addPet = (pet) => {
     axios.post('http://localhost:3000/pets', pet)
