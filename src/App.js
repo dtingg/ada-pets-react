@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       petList: [], //pets,
       currentPet: undefined,
-      error: "",
+      error: undefined,
     };
   }
 
@@ -41,35 +41,52 @@ class App extends Component {
     }); 
   }
 
-  removePet = (petId) => {
-    let currentPet = this.state.currentPet
-    let selectedPet = pets.find((pet) => pet.id === petId);
+  // removePet = (petId) => {
+  //   let currentPet = this.state.currentPet
+  //   let selectedPet = pets.find((pet) => pet.id === petId);
 
-    if (currentPet === selectedPet) {
-      this.setState({
-        currentPet: undefined
+  //   if (currentPet === selectedPet) {
+  //     this.setState({
+  //       currentPet: undefined
+  //     })
+  //   }
+
+  //   let petIndex = pets.indexOf(selectedPet)
+
+  //   pets.splice(petIndex, 1)
+
+  //   this.setState({ pets });
+  // }
+
+  removePet = (pet) => {
+    axios.post('http://localhost:3000/pets', pet)
+      .then((response) => {
+
+        // What should we do when we know the post request worked?
       })
-    }
-
-    let petIndex = pets.indexOf(selectedPet)
-
-    pets.splice(petIndex, 1)
-
-    this.setState({ pets });
+      .catch((error) => {
+        // What should we do when we know the post request failed?
+        this.setState({
+          error: error.message,
+        })
+      });
   }
 
   addPet = (pet) => {
-    const pets = this.state.petList;
-
-    const newId = this.state.petList.length + 1
-
-    pet.id = newId
-
-    pets.push(pet);
-    
-    this.setState({ pets });
-
-    console.log(this.state)
+    axios.post('http://localhost:3000/pets', pet)
+      .then((response) => {
+        const { petList } = this.state;
+        petList.push(response.data);
+        this.setState({ 
+          petList,
+          error: undefined, 
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error: error.message,
+        })
+      });
   }
 
   render () {
